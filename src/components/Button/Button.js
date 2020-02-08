@@ -6,7 +6,7 @@ const defaultOnClick = () => {
 }
 
 /**
-* General component description in JSDoc format. Markdown is *supported*.
+* A simple button component
 */
 export default class Button extends React.Component {
   static propTypes = {
