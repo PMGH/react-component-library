@@ -1,4 +1,6 @@
-@import "./styles.scss";
+// Global
+@import "./styles/styles.scss";
+@import "./styles/variables.scss";
 
 // Components
 @import "./components/Button/Button.scss";
