@@ -13,11 +13,14 @@ export default class Button extends React.Component {
     /** The size prop can be provided and will supply a size class to the button. */
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     /** The onClick prop should be set to a function that will be called when the button is clicked. */
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    /** The buttonText prop can be used to set the text displayed on the button. */
+    buttonText: PropTypes.string
   }
   static  defaultProps = {
     size: 'medium',
-    onClick: () => defaultOnClick()
+    onClick: () => defaultOnClick(),
+    buttonText: 'Click me!'
   }
 
   sizeClass() {
@@ -34,7 +37,7 @@ export default class Button extends React.Component {
   render() {
     return(
       <button className={this.sizeClass()} onClick={this.props.onClick}>
-        Click me!
+        {this.props.buttonText}
       </button>
     );
   }
