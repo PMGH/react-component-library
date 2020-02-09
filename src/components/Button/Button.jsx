@@ -15,7 +15,7 @@ export default class Button extends React.Component {
     /** The onClick prop should be set to a function that will be called when the button is clicked. */
     onClick: PropTypes.func
   }
-  static defaultProps = {
+  static  defaultProps = {
     size: 'medium',
     onClick: () => defaultOnClick()
   }

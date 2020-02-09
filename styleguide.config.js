@@ -1,4 +1,7 @@
 module.exports = {
-  components: 'src/components/**/*.js',
-  // propsParser: require('react-docgen-typescript').withDefaultConfig([parserOptions]).parse
+  webpackConfig: require('./webpack.config.js'),
+  components: 'src/components/**/*.jsx',
+  propsParser: require('react-docgen-typescript').withCustomConfig(
+    './tsconfig.json'
+  ).parse
 };
