@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+require('./Button.scss');
 
 const defaultOnClick = () => {
   return console.log('Please provide an onClick prop set to a function');
