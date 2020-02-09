@@ -7,5 +7,5 @@ Example
 <br />
 <ProgressBar value={80} maxValue={100} />
 <br />
-<ProgressBar value={100} maxValue={100} barColor='black' textColor='yellow' />
+<ProgressBar value={100} maxValue={100} barColor='#171A21' textColor='#EAD94C' />
 ```
