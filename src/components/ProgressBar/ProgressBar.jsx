@@ -38,6 +38,10 @@ export default class ProgressBar extends React.Component {
   }
 
   colorClassName() {
+    if (this.props.barColor || this.props.textColor) {
+      return '';
+    }
+
     const { percentage } = this.state;
     if (percentage < 25) {
       return 'danger';
@@ -49,13 +53,17 @@ export default class ProgressBar extends React.Component {
   }
 
   render() {
+    const { barColor, textColor } = this.props;
     const formattedPercent = this.formatPercent(this.state.percentage);
-    console.log("formattedPercent: ", formattedPercent);
     return (
       <div className={"progress-container"}>
         <div
           className={`progress ${this.colorClassName()}`}
-          style={{ width: formattedPercent }}
+          style={{
+            width: formattedPercent,
+            color: textColor,
+            backgroundColor: barColor
+          }}
         >
           {formattedPercent}
         </div>
