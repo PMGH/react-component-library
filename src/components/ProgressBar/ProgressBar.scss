@@ -1,0 +1,30 @@
+.progress-container {
+  height: 1rem;
+  width: 100%;
+  border-radius: 10px;
+  background-color: lightgrey;
+  max-width: 300px;
+}
+
+.progress {
+  height: 1rem;
+  border-radius: 10px;
+  font-size: .6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Progress bar colors
+.danger {
+  color: white;
+  background-color: red;
+}
+.warning {
+  color: white;
+  background-color: orange;
+}
+.success {
+  color: white;
+  background-color: green;
+}
