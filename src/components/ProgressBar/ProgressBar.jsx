@@ -7,13 +7,13 @@ import PropTypes from 'prop-types';
 */
 export default class ProgressBar extends React.Component {
   static propTypes = {
-    /** The value prop represents the progress value, should be less than maxValue. E.g. {90} */
-    value: PropTypes.number,
-    /** The maxValue prop represents the maximum value E.g. {100} */
-    maxValue: PropTypes.number,
-    /** The barColor prop can be a string color including hex code. E.g. 'yellow' */
+    /** REQUIRED: The value prop represents the progress value, should be less than maxValue. E.g. {90} */
+    value: PropTypes.number.isRequired,
+    /** REQUIRED: The maxValue prop represents the maximum value E.g. {100} */
+    maxValue: PropTypes.number.isRequired,
+    /** OPTIONAL: The barColor prop can be a string color including hex code. E.g. 'yellow' */
     barColor: PropTypes.string,
-    /** The textColor prop can be a string color including hex code. E.g. 'black' */
+    /** OPTIONAL: The textColor prop can be a string color including hex code. E.g. 'black' */
     textColor: PropTypes.string
   }
   static defaultProps = {
