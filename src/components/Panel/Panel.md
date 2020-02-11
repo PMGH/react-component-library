@@ -2,7 +2,7 @@ Example
 
 ```js padded
 <Panel>
-  <article style={{textAlign: "center"}}>
+  <article>
     <h1>ARTICLE TITLE</h1>
     <hr class="separator" />
     <p>

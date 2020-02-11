@@ -1,3 +1,17 @@
 body {
   font-family: $font-family;
 }
+
+p {
+  padding: $padding-lg;
+}
+
+.separator {
+  border-color: $green;
+  width: 50%;
+}
+
+.page-number {
+  color: $grey;
+  font-size: $font-size-sm;
+}
