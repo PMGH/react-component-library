@@ -1,0 +1,13 @@
+.icon-bar {
+  border: 2px solid $lightgrey;
+  border-radius: $border-radius;
+  display: flex;
+  align-items: center;
+  padding: $padding-md;
+}
+
+.icon {
+  width: $icon-width;
+  border-radius: 50%;
+  margin: 0 $margin-md;
+}
