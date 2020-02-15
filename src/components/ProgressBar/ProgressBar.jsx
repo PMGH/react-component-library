@@ -32,7 +32,7 @@ export default class ProgressBar extends React.Component {
   }
 
   formatPercent(value) {
-    return `${value}%`;
+    return value + '%';
   }
 
   colorClassName(percent) {
@@ -50,7 +50,7 @@ export default class ProgressBar extends React.Component {
   }
 
   render() {
-    const { barColor, textColor, displayValue } = this.props;
+    const { value, barColor, textColor, displayValue } = this.props;
     const percent = this.percentage();
     const formattedPercent = this.formatPercent(percent);
     return (
@@ -64,7 +64,7 @@ export default class ProgressBar extends React.Component {
               backgroundColor: barColor
             }}
           >
-          { displayValue ? this.props.value : formattedPercent }
+          { displayValue ? value : formattedPercent }
           </div>
         }
       </div>
