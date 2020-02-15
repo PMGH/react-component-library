@@ -10,6 +10,14 @@ p {
   padding: $padding-lg;
 }
 
+input {
+  border: 1px solid $lightgrey;
+  border-radius: $border-radius;
+  padding: $padding-md;
+  margin: $margin-sm 0;
+  outline: none;
+}
+
 .separator {
   border-color: $lightblue;
   width: 50%;
