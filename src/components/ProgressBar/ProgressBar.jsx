@@ -20,19 +20,11 @@ export default class ProgressBar extends React.Component {
     value: 20,
     maxValue: 100
   }
-  constructor() {
-    super();
-    this.state = {
-      percentage: '0'
-    }
-  }
-
-  componentDidMount() {
-    this.setState({percentage: this.percentage()})
-  }
 
   percentage() {
     const { value, maxValue } = this.props;
+    if (!value || !maxValue) { return 0 }
+
     return (value / maxValue) * 100;
   }
 
@@ -40,15 +32,14 @@ export default class ProgressBar extends React.Component {
     return `${value}%`;
   }
 
-  colorClassName() {
+  colorClassName(percent) {
     if (this.props.barColor || this.props.textColor) {
       return '';
     }
 
-    const { percentage } = this.state;
-    if (percentage < 25) {
+    if (percent < 25) {
       return 'danger';
-    } else if (percentage > 75) {
+    } else if (percent > 75) {
       return 'success';
     } else {
       return 'warning';
@@ -56,20 +47,23 @@ export default class ProgressBar extends React.Component {
   }
 
   render() {
-    const { barColor, textColor } = this.props;
-    const formattedPercent = this.formatPercent(this.state.percentage);
+    const { barColor, textColor, displayValue } = this.props;
+    const percent = this.percentage();
+    const formattedPercent = this.formatPercent(percent);
     return (
       <div className={"progress-container"}>
-        <div
-          className={`progress ${this.colorClassName()}`}
-          style={{
-            width: formattedPercent,
-            color: textColor,
-            backgroundColor: barColor
-          }}
-        >
-          {formattedPercent}
-        </div>
+        { percent > 0 &&
+          <div
+            className={`progress ${this.colorClassName(percent)}`}
+            style={{
+              width: formattedPercent,
+              color: textColor,
+              backgroundColor: barColor
+            }}
+          >
+          { displayValue ? this.props.value : formattedPercent }
+          </div>
+        }
       </div>
     );
   }
