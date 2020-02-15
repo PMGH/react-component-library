@@ -4,9 +4,9 @@ import zxcvbn from 'zxcvbn';
 import ProgressBar from '../ProgressBar/ProgressBar';
 
 /**
-* A password strength component
+* A password strength meter component
 */
-export default class PasswordStrength extends React.Component {
+export default class PasswordStrengthMeter extends React.Component {
   constructor() {
     super();
     this.state = {

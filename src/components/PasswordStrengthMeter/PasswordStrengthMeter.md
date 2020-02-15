@@ -1,5 +1,5 @@
 Example
 
 ```js padded
-<PasswordStrength />
+<PasswordStrengthMeter />
 ```
