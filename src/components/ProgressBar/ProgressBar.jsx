@@ -14,11 +14,14 @@ export default class ProgressBar extends React.Component {
     /** OPTIONAL: The barColor prop can be a string color including hex code. E.g. 'yellow' */
     barColor: PropTypes.string,
     /** OPTIONAL: The textColor prop can be a string color including hex code. E.g. 'black' */
-    textColor: PropTypes.string
+    textColor: PropTypes.string,
+    /** OPTIONAL: The displayValue prop can be set to true to display the value instead of the percentage. */
+    displayValue: PropTypes.bool
   }
   static defaultProps = {
     value: 20,
-    maxValue: 100
+    maxValue: 100,
+    displayValue: false
   }
 
   percentage() {
