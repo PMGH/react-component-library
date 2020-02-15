@@ -14,11 +14,14 @@ export default class ProgressBar extends React.Component {
     /** OPTIONAL: The barColor prop can be a string color including hex code. E.g. 'yellow' */
     barColor: PropTypes.string,
     /** OPTIONAL: The textColor prop can be a string color including hex code. E.g. 'black' */
-    textColor: PropTypes.string
+    textColor: PropTypes.string,
+    /** OPTIONAL: The displayValue prop can be set to true to display the value instead of the percentage. */
+    displayValue: PropTypes.bool
   }
   static defaultProps = {
     value: 20,
-    maxValue: 100
+    maxValue: 100,
+    displayValue: false
   }
 
   percentage() {
@@ -29,7 +32,7 @@ export default class ProgressBar extends React.Component {
   }
 
   formatPercent(value) {
-    return `${value}%`;
+    return value + '%';
   }
 
   colorClassName(percent) {
@@ -47,7 +50,7 @@ export default class ProgressBar extends React.Component {
   }
 
   render() {
-    const { barColor, textColor, displayValue } = this.props;
+    const { value, barColor, textColor, displayValue } = this.props;
     const percent = this.percentage();
     const formattedPercent = this.formatPercent(percent);
     return (
@@ -61,7 +64,7 @@ export default class ProgressBar extends React.Component {
               backgroundColor: barColor
             }}
           >
-          { displayValue ? this.props.value : formattedPercent }
+          { displayValue ? value : formattedPercent }
           </div>
         }
       </div>
