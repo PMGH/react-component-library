@@ -10,25 +10,35 @@ export default class PasswordStrength extends React.Component {
   constructor() {
     super();
     this.state = {
-      strength: 0
+      strength: 0,
+      feedback: ''
     }
   }
 
   onChange(e) {
     const password = e.target.value;
-    const strength = this.calculateStrength(password);
-    this.setState({ strength: strength })
+    this.calculateStrength(password);
   }
 
   calculateStrength(password) {
-    return zxcvbn(password).score;
+    const zxcvbnObj = zxcvbn(password);
+    const score = zxcvbnObj.score;
+    const feedback = zxcvbnObj.feedback.warning;
+    this.setState({
+      strength: score,
+      feedback: feedback
+    })
   }
 
   render() {
+    const { strength, feedback } = this.state;
     return (
       <div className={"password-strength-container"}>
-        <ProgressBar value={this.state.strength} maxValue={4} displayValue={true} />
-        <input onChange={(e) => this.onChange(e)} />
+        <ProgressBar value={strength} maxValue={4} displayValue={true} />
+        { feedback &&
+          <p className="password-feedback">{feedback}</p>
+        }
+        <input className="password-input" placeholder="Enter password" onChange={(e) => this.onChange(e)} />
       </div>
     );
   }
