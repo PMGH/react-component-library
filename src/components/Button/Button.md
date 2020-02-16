@@ -1,7 +1,7 @@
 Example
 
 ```js padded
-<Button size='large' onClick={(e) => console.log('button clicked')} buttonText='Large button' />
+<Button buttonText='Large button' onClick={(e) => console.log('button clicked')} size='large' />
 <Button buttonText='Medium button'/>
-<Button size='small' buttonText='Small button' />
+<Button buttonText='Small button' size='small' />
 ```
