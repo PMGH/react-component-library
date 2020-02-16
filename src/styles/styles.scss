@@ -39,6 +39,39 @@ select {
   }
 }
 
+ul, ol {
+  color: $font-color;
+  padding-inline-start: $margin-lg;
+  margin: $margin-sm $margin-lg;
+  li {
+    border-bottom: $border-width solid $border-color;
+    padding: $padding-md;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+ol {
+  list-style: none;
+  counter-reset: item;
+  li {
+    counter-increment: item;
+    &:before {
+      margin-right: 10px;
+      content: counter(item);
+      background: $border-color;
+      border-radius: 100%;
+      color: $white;
+      width: 1.2em;
+      text-align: center;
+      display: inline-block;
+      padding: $padding-sm;
+    }
+  }
+}
+
 .separator {
   border-color: $border-color;
   width: 50%;
