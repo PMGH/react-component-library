@@ -2,7 +2,7 @@
 .btn-medium,
 .btn-large {
   background: none;
-  border: 2px solid $lightblue;
+  border: $border-width-lg solid $border-color;
   color: $lightblue;
   border-radius: $border-radius;
   font-weight: bold;

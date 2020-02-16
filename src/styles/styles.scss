@@ -11,19 +11,40 @@ p {
 }
 
 input {
-  border: 1px solid $lightgrey;
+  border: $border-width solid $border-color;
   border-radius: $border-radius;
   padding: $padding-md;
   margin: $margin-sm 0;
   outline: none;
+  color: $font-color;
+}
+
+select {
+  margin: $margin-md;
+  min-width: 150px;
+  padding: $padding-sm;
+  font-size: $font-size-sm;
+  color: $font-color;
+  border: $border-width solid $border-color;
+  border-radius: $border-radius;
+  height: 34px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url('/public/down_arrow.svg') 96% / 15% no-repeat $white;
+  background-size: $icon-width;
+  outline: none;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .separator {
-  border-color: $lightblue;
+  border-color: $border-color;
   width: 50%;
 }
 
 .page-number {
-  color: $grey;
+  color: $font-color;
   font-size: $font-size-sm;
 }
