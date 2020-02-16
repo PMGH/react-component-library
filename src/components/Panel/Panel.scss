@@ -1,8 +1,8 @@
 .panel {
   background-color: $white;
-  border-radius: 5px;
+  border-radius: $border-radius;
   padding: $padding-lg;
-  border: 1px solid $lightgrey;
+  border: $border-width solid $border-color;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,9 +1,10 @@
 .icon-bar {
-  border: 2px solid $lightgrey;
+  border: $border-width solid $border-color;
   border-radius: $border-radius;
   display: flex;
   align-items: center;
   padding: $padding-md;
+  color: $font-color;
 }
 
 .icon {
