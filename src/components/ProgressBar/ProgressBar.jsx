@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
-* A progress bar component
+* A progress bar component that changes colour (red, amber, green) depending on progress. It displays a percentage by default but a prop (displayValue) can be set to true to display the value instead. Text Colour and Progress Bar colour can also be set by props.
 */
 export default class ProgressBar extends React.Component {
   static propTypes = {
