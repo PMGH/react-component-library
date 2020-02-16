@@ -53,6 +53,25 @@ ul {
   list-style: none;
 }
 
+ol {
+  list-style: none;
+  counter-reset: item;
+  li {
+    counter-increment: item;
+    &:before {
+      margin-right: 10px;
+      content: counter(item);
+      background: $border-color;
+      border-radius: 100%;
+      color: $white;
+      width: 1.2em;
+      text-align: center;
+      display: inline-block;
+      padding: $padding-sm;
+    }
+  }
+}
+
 .separator {
   border-color: $border-color;
   width: 50%;
