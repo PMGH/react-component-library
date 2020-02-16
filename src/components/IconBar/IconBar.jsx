@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
-* An icon bar component
+* An icon bar component that renders an icon and a span of text.
 */
 export default class IconBar extends React.Component {
   static propTypes = {

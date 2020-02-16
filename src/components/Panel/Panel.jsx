@@ -2,7 +2,7 @@
 import React from 'react';
 
 /**
-* A panel component
+* A panel component that renders it's children.
 */
 export default class Panel extends React.Component {
   render() {

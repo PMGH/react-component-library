@@ -4,7 +4,7 @@ import zxcvbn from 'zxcvbn';
 import ProgressBar from '../ProgressBar/ProgressBar';
 
 /**
-* A password strength meter component
+* A password strength meter component that renders a progress bar, password feedback (if provided by zxcvbn) and an text input.
 */
 export default class PasswordStrengthMeter extends React.Component {
   constructor() {
