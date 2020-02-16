@@ -19,59 +19,6 @@ input {
   color: $font-color;
 }
 
-select {
-  margin: $margin-md;
-  min-width: 150px;
-  padding: $padding-sm;
-  font-size: $font-size-sm;
-  color: $font-color;
-  border: $border-width solid $border-color;
-  border-radius: $border-radius;
-  height: 34px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: url('/public/down_arrow.svg') 96% / 15% no-repeat $white;
-  background-size: $icon-width;
-  outline: none;
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-ul, ol {
-  color: $font-color;
-  padding-inline-start: $margin-lg;
-  margin: $margin-sm $margin-lg;
-  li {
-    border-bottom: $border-width solid $border-color;
-    padding: $padding-md;
-  }
-}
-
-ul {
-  list-style: none;
-}
-
-ol {
-  list-style: none;
-  counter-reset: item;
-  li {
-    counter-increment: item;
-    &:before {
-      margin-right: 10px;
-      content: counter(item);
-      background: $border-color;
-      border-radius: 100%;
-      color: $white;
-      width: 1.2em;
-      text-align: center;
-      display: inline-block;
-      padding: $padding-sm;
-    }
-  }
-}
-
 .separator {
   border-color: $border-color;
   width: 50%;
