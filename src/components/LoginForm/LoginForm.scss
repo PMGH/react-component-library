@@ -1,0 +1,23 @@
+.login-form {
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+  padding: $padding-lg;
+  border: $border-width solid $border-color;
+  border-radius: $border-radius;
+  color: $darkgrey;
+}
+
+.form-title {
+  font-size: $font-size-lg;
+  text-align: center;
+  width: 100%;
+  margin-bottom: $margin-lg;
+}
+
+.form-group {
+  display: flex;
+  flex-flow: column nowrap;
+  min-width: 300px;
+  margin: $margin-lg 0;
+}
