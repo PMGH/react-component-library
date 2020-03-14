@@ -45,7 +45,7 @@ export default class ListAlphabetical extends React.Component {
 
   renderItems(items) {
     console.log("render items: ", items)
-    return items.map(item => {
+    return items.sort().map(item => {
       return <li className="alphabetical-list-item">{item}</li>;
     })
   }
