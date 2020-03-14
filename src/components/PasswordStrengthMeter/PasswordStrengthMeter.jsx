@@ -11,7 +11,8 @@ export default class PasswordStrengthMeter extends React.Component {
     super();
     this.state = {
       strength: 0,
-      feedback: ''
+      feedback: '',
+      password: ''
     }
   }
 
@@ -26,19 +27,23 @@ export default class PasswordStrengthMeter extends React.Component {
     const feedback = zxcvbnObj.feedback.warning;
     this.setState({
       strength: score,
-      feedback: feedback
+      feedback: feedback,
+      password
     })
   }
 
   render() {
-    const { strength, feedback } = this.state;
+    const { strength, feedback, password } = this.state;
+    const passwordPresent = password.length > 0;
     return (
       <div className={"password-strength-container"}>
-        <ProgressBar value={strength} maxValue={4} displayValue={true} />
-        { feedback &&
+        { passwordPresent &&
+          <ProgressBar value={strength} maxValue={4} displayValue={true} />
+        }
+        { passwordPresent && feedback &&
           <p className="password-feedback">{feedback}</p>
         }
-        <input className="password-input" placeholder="Enter password" onChange={(e) => this.onChange(e)} />
+        <input className="password-input" placeholder="Enter password" type="password" onChange={(e) => this.onChange(e)} />
       </div>
     );
   }
