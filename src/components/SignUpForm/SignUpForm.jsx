@@ -16,7 +16,11 @@ export default class SignUpForm extends React.Component {
             <input name="lastName" placeholder="Last name"></input>
           </div>
           <input name="username" placeholder="Username"></input>
+
+          <hr />
+
           <PasswordStrengthMeter />
+          <input name="password-confirmation" placeholder="Confirm password" type="password"></input>
         </div>
         <Button buttonText='Sign up' size='large' onClick={(e) => console.log('button clicked')} />
       </form>
