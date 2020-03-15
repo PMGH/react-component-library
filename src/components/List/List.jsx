@@ -18,7 +18,7 @@ export default class List extends React.Component {
 
   renderUl() {
     return(
-      <ul>
+      <ul className="unordered-list">
         {this.renderItems()}
       </ul>
     );
@@ -26,7 +26,7 @@ export default class List extends React.Component {
 
   renderOl() {
     return(
-      <ol>
+      <ol className="ordered-list">
         {this.renderItems()}
       </ol>
     );
