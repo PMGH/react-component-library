@@ -24,7 +24,6 @@ export default class ListAlphabetical extends React.Component {
         groups[letter] = [item];
       }
     })
-    console.log("groups: ", groups);
     return groups;
   }
 
@@ -44,9 +43,8 @@ export default class ListAlphabetical extends React.Component {
   }
 
   renderItems(items) {
-    console.log("render items: ", items)
-    return items.sort().map(item => {
-      return <li className="alphabetical-list-item">{item}</li>;
+    return items.sort().map((item, index) => {
+      return <li key={index} className="alphabetical-list-item">{item}</li>;
     })
   }
 

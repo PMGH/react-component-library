@@ -1,4 +1,4 @@
-ul, ol {
+.unordered-list, .ordered-list {
   color: $font-color;
   padding-inline-start: $margin-lg;
   margin: $margin-sm $margin-lg;
@@ -8,11 +8,11 @@ ul, ol {
   }
 }
 
-ul {
+.unordered-list {
   list-style: none;
 }
 
-ol {
+.ordered-list {
   list-style: none;
   counter-reset: item;
   li {
@@ -23,9 +23,12 @@ ol {
       background: $border-color;
       border-radius: 100%;
       color: $white;
-      width: 1.2em;
+      width: 0.6em;
+      height: 0.6em;
       text-align: center;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       padding: $padding-sm;
     }
   }

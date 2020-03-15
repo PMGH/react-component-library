@@ -18,7 +18,7 @@ export default class List extends React.Component {
 
   renderUl() {
     return(
-      <ul>
+      <ul className="unordered-list">
         {this.renderItems()}
       </ul>
     );
@@ -26,15 +26,15 @@ export default class List extends React.Component {
 
   renderOl() {
     return(
-      <ol>
+      <ol className="ordered-list">
         {this.renderItems()}
       </ol>
     );
   }
 
   renderItems() {
-    return this.props.items.map(item => {
-      return <li>{item}</li>;
+    return this.props.items.map((item, index) => {
+      return <li key={index}>{item}</li>;
     })
   }
 
