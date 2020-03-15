@@ -33,8 +33,8 @@ export default class List extends React.Component {
   }
 
   renderItems() {
-    return this.props.items.map(item => {
-      return <li>{item}</li>;
+    return this.props.items.map((item, index) => {
+      return <li key={index}>{item}</li>;
     })
   }
 
