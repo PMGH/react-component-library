@@ -15,6 +15,12 @@
   margin-bottom: $margin-lg;
 }
 
+.login-icon {
+  width: 100px;
+  border: 1px solid $lightgrey;
+  border-radius: 50%;
+}
+
 .form-group {
   display: flex;
   flex-flow: column nowrap;
