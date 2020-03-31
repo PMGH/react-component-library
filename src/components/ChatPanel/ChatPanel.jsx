@@ -1,5 +1,4 @@
 import React from 'react';
-import Panel from '../Panel/Panel';
 
 /**
 * A chat panel component that renders it's children.
