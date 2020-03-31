@@ -10,6 +10,7 @@
   border-bottom: $border-width solid $border-color;
   height: 200px;
   overflow-y: auto;
+  padding: $padding-md 0;
 }
 
 .chat-input {
@@ -23,7 +24,7 @@
 .chat-message {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .chat-message-content {
@@ -33,7 +34,6 @@
   font-size: $font-size-sm;
   margin: $margin-md;
   padding: $padding-md;
-  width: 100%;
 }
 
 .chat-time {
