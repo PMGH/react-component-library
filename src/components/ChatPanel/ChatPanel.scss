@@ -1,0 +1,19 @@
+.chat-container {
+  display: flex;
+  flex-flow: column wrap;
+  border: $border-width solid $border-color;
+  border-radius: $border-radius;
+}
+
+.chat-output {
+  width: 100%;
+  border-bottom: $border-width solid $border-color;
+}
+
+.chat-input {
+  width: 100%;
+  margin: 0;
+  border: none;
+  padding: $padding-md 0 $padding-md $padding-sm;
+  background: transparent;
+}
