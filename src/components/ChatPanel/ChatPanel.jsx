@@ -17,8 +17,12 @@ export default class ChatPanel extends React.Component {
 
   handleKeyDown(event) {
     if (event.key === 'Enter') {
-      const message = event.target.value;
-      if (message.length > 0) {
+      const content = event.target.value;
+      if (content.length > 0) {
+        const message = {
+          content,
+          createdAt: this.time()
+        }
         // submit message
         this.setState({
           messages: [...this.state.messages, message]
@@ -31,9 +35,9 @@ export default class ChatPanel extends React.Component {
   renderMessages() {
     return(
       this.state.messages.map((message, index) => (
-        <div className="chat-message">
-          <p key={index} className="chat-message-content">{message}</p>
-          <span className="chat-time">{this.time()}</span>
+        <div key={index} className="chat-message">
+          <p className="chat-message-content">{message.content}</p>
+          <span className="chat-time">{message.createdAt}</span>
         </div>
     ))
     )
