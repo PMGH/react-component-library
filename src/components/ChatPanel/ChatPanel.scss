@@ -1,14 +1,21 @@
+.chat-panel-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
 .chat-container {
   display: flex;
   flex-flow: column wrap;
   border: $border-width solid $border-color;
   border-radius: $border-radius;
+  width: 300px;
 }
 
 .chat-output {
   width: 100%;
   border-bottom: $border-width solid $border-color;
-  height: 200px;
+  height: 300px;
   overflow-y: auto;
   padding: $padding-md 0;
 }
@@ -38,7 +45,7 @@
 
 .chat-time {
   color: $font-color-muted;
-  font-size: $font-size-sm;
+  font-size: $font-size-xs;
   width: 100%;
   text-align: right;
   margin: 0 $margin-md;

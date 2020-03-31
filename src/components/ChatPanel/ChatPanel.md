@@ -1,5 +1,8 @@
 Example
 
 ```js padded
-<ChatPanel></ChatPanel>
+<div className="chat-panel-container">
+  <ChatPanel></ChatPanel>
+  <ChatPanel></ChatPanel>
+</div>
 ```
