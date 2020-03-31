@@ -1,11 +1,11 @@
 import React from 'react';
 
 /**
-* A chat panel component that renders it's children.
+* A chat panel component.
 */
 export default class ChatPanel extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       messages: []
     }
@@ -20,27 +20,39 @@ export default class ChatPanel extends React.Component {
       const content = event.target.value;
       if (content.length > 0) {
         const message = {
+          user: this.props.user,
           content,
           createdAt: this.time()
         }
-        // submit message
         this.setState({
           messages: [...this.state.messages, message]
         })
         this.clearInput();
+        this.emitMessage(message);
       }
     }
   }
 
   renderMessages() {
-    return(
-      this.state.messages.map((message, index) => (
+    let messages = [];
+    if (this.props.messages) {
+      console.log('rendering messages from props: ', this.props)
+      messages = this.props.messages.map((message, index) => (
         <div key={index} className="chat-message">
           <p className="chat-message-content">{message.content}</p>
           <span className="chat-time">{message.createdAt}</span>
         </div>
-    ))
-    )
+      ))
+    } else {
+      console.log('rendering messages from state: ', this.state)
+      messages = this.state.messages.map((message, index) => (
+        <div key={index} className="chat-message">
+          <p className="chat-message-content">{message.content}</p>
+          <span className="chat-time">{message.createdAt}</span>
+        </div>
+      ))
+    }
+    return messages;
   }
 
   time() {
@@ -58,22 +70,26 @@ export default class ChatPanel extends React.Component {
     chatOutputs.forEach(output => output.scrollTop = output.scrollHeight)
   }
 
+  emitMessage(message) {
+    this.props.emitter && this.props.emitter.emit('newMessage', message);
+  }
+
   render() {
     return (
-        <div className="chat-container">
-          <div className="chat-output">
-            { this.renderMessages() }
-          </div>
-
-          <div className="chat-input">
-            <input
-              placeholder="Type message..."
-              className="chat-input"
-              onKeyDown={(event) => { this.handleKeyDown(event) }}
-            >
-            </input>
-          </div>
+      <div className="chat-container">
+        <div className="chat-output">
+          { this.renderMessages() }
         </div>
+
+        <div className="chat-input">
+          <input
+            placeholder="Type message..."
+            className="chat-input"
+            onKeyDown={(event) => { this.handleKeyDown(event) }}
+          >
+          </input>
+        </div>
+      </div>
     );
   }
 }
