@@ -41,21 +41,24 @@ export default class ChatPanel extends React.Component {
     if (this.props.messages) {
       console.log('rendering messages from props: ', this.props)
       messages = this.props.messages.map((message, index) => (
-        <div key={index} className="chat-message">
-          <p className="chat-message-content">{message.content}</p>
-          <span className="chat-time">{message.createdAt}</span>
-        </div>
+        this.renderMessage(message, index)
       ))
     } else {
       console.log('rendering messages from state: ', this.state)
       messages = this.state.messages.map((message, index) => (
-        <div key={index} className="chat-message">
-          <p className="chat-message-content">{message.content}</p>
-          <span className="chat-time">{message.createdAt}</span>
-        </div>
+        this.renderMessage(message, index)
       ))
     }
     return messages;
+  }
+
+  renderMessage(message, index) {
+    return (
+      <div key={index} className="chat-message">
+        <p className="chat-message-content">{message.content}</p>
+        <span className="chat-time">{message.createdAt}</span>
+      </div>
+    )
   }
 
   time() {
