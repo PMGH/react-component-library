@@ -7,7 +7,10 @@ export default class ChatPanel extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      messages: []
+      messages: [
+        { user: 'System', content: 'Renders messages from state.', createdAt: this.time() },
+        { user: 'System', content: "Doesn't use an Event Emitter.", createdAt: this.time() }
+      ]
     }
   }
 

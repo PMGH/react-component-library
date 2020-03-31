@@ -15,13 +15,21 @@ export default class ChatExample extends React.Component {
 
     this.state = {
       emitter,
-      messages: []
+      messages: [
+        { user: 'System', content: 'Renders messages passed in through props.', createdAt: this.time() },
+        { user: 'System', content: 'Emits messages through an Event Emitter that is passed in through props.', createdAt: this.time() }
+      ]
     }
   }
 
   updateMessages(message) {
     console.log('ChatExample update messages with: ', message)
     this.setState({ messages: [...this.state.messages, message] })
+  }
+
+  time() {
+    const now = new Date();
+    return now.toUTCString();
   }
 
   render() {
