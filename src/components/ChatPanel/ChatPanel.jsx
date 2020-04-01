@@ -6,7 +6,10 @@ import React from 'react';
 export default class ChatPanel extends React.Component {
   constructor(props) {
     super(props)
+    const messageColor = this.randomColor();
+
     this.state = {
+      color: messageColor,
       messages: [
         { user: 'System', content: 'Renders messages from state.', createdAt: this.time() },
         { user: 'System', content: "Doesn't use an Event Emitter.", createdAt: this.time() }
@@ -25,7 +28,8 @@ export default class ChatPanel extends React.Component {
         const message = {
           user: this.props.user,
           content,
-          createdAt: this.time()
+          createdAt: this.time(),
+          color: this.state.color
         }
         this.setState({
           messages: [...this.state.messages, message]
@@ -53,10 +57,19 @@ export default class ChatPanel extends React.Component {
   }
 
   renderMessage(message, index) {
+    const currentUser = message.user === this.props.user;
+    let alignment = 'flex-start';
+    let textAlign = 'left';
+
+    if (currentUser) {
+      alignment = 'flex-end';
+      textAlign = 'right';
+    }
+
     return (
-      <div key={index} className="chat-message">
-        <p className="chat-message-content">{message.content}</p>
-        <span className="chat-time">{message.createdAt}</span>
+      <div key={index} className="chat-message" style={{ justifyContent: alignment }}>
+        <p className="chat-message-content" style={{ backgroundColor: message.color }}>{message.content}</p>
+        <span className="chat-time" style={{ textAlign: textAlign }}>{message.createdAt}</span>
       </div>
     )
   }
@@ -74,6 +87,11 @@ export default class ChatPanel extends React.Component {
   scrollToBottom() {
     const chatOutputs = document.getElementsByClassName("chat-output");
     chatOutputs.forEach(output => output.scrollTop = output.scrollHeight)
+  }
+
+  randomColor() {
+    const colorCode = Math.floor(Math.random() * 16777215).toString(16);
+    return '#' + colorCode;
   }
 
   emitMessage(message) {

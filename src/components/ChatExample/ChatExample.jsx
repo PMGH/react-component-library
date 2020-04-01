@@ -23,7 +23,6 @@ export default class ChatExample extends React.Component {
   }
 
   updateMessages(message) {
-    console.log('ChatExample update messages with: ', message)
     this.setState({ messages: [...this.state.messages, message] })
   }
 
