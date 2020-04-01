@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { currentTime, randomColor, scrollToBottomOf, clearValue, emitMessage } from '../../shared/utils';
 
 /**
 * A chat panel component.
@@ -16,13 +17,13 @@ export default class ChatPanel extends React.Component {
 
   constructor(props) {
     super(props)
-    const messageColor = this.randomColor();
+    const messageColor = randomColor();
 
     this.state = {
       color: messageColor,
       messages: [
-        { user: 'System', content: 'Renders messages from state.', createdAt: this.time() },
-        { user: 'System', content: "Doesn't use an Event Emitter.", createdAt: this.time() }
+        { user: 'System', content: 'Renders messages from state.', createdAt: currentTime() },
+        { user: 'System', content: "Doesn't use an Event Emitter.", createdAt: currentTime() }
       ]
     }
   }
@@ -37,8 +38,8 @@ export default class ChatPanel extends React.Component {
       if (content.length > 0) {
         const message = this.messagePayload(content);
         this.setState({ messages: [...this.state.messages, message] })
-        this.clearInput();
-        this.emitMessage(message);
+        this.clearInputs();
+        emitMessage(this.props.emitter, message);
       }
     }
   }
@@ -47,7 +48,7 @@ export default class ChatPanel extends React.Component {
     return ({
       user: this.props.user,
       content,
-      createdAt: this.time(),
+      createdAt: currentTime(),
       color: this.state.color
     })
   }
@@ -88,28 +89,14 @@ export default class ChatPanel extends React.Component {
     )
   }
 
-  time() {
-    const now = new Date();
-    return now.toUTCString();
-  }
-
-  clearInput() {
+  clearInputs() {
     const chatInputs = document.getElementsByClassName("chat-input");
-    chatInputs.forEach(input => input.value = '');
+    chatInputs.forEach(input => clearValue(input) );
   }
 
   scrollToBottom() {
     const chatOutputs = document.getElementsByClassName("chat-output");
-    chatOutputs.forEach(output => output.scrollTop = output.scrollHeight)
-  }
-
-  randomColor() {
-    const colorCode = Math.floor(Math.random() * 16777215).toString(16);
-    return '#' + colorCode;
-  }
-
-  emitMessage(message) {
-    this.props.emitter && this.props.emitter.emit('newMessage', message);
+    chatOutputs.forEach(output => scrollToBottomOf(output) )
   }
 
   render() {
