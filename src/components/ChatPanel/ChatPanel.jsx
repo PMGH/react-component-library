@@ -100,9 +100,16 @@ export default class ChatPanel extends React.Component {
   }
 
   render() {
+    const borderStyle = !this.props.user ? { borderTop: 'none' } : {};
+
     return (
       <div className="chat-container">
-        <div className="chat-output">
+        { this.props.user &&
+          <div className="chat-header" style={{ color: this.state.color }}>
+            { this.props.user }
+          </div>
+        }
+        <div className="chat-output" style={borderStyle}>
           { this.renderMessages() }
         </div>
 

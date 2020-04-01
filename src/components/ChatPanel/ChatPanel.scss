@@ -6,15 +6,21 @@
   width: 300px;
 }
 
+.chat-header {
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+}
+
 .chat-output {
   width: 100%;
+  border-top: $border-width solid $border-color;
   border-bottom: $border-width solid $border-color;
   height: 300px;
   overflow-y: auto;
   padding: $padding-md 0;
 }
 
-.chat-input {
+.chat-header, .chat-input {
   width: 100%;
   margin: 0;
   border: none;
