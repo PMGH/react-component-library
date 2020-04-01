@@ -1,9 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
 * A chat panel component.
 */
 export default class ChatPanel extends React.Component {
+  static propTypes = {
+    /** OPTIONAL: The user prop can be provided and will be used to assign color to the message (see ChatExample). */
+    user: PropTypes.string,
+    /** OPTIONAL: The messages prop should be passed when connecting chats (see ChatExample). */
+    messages: PropTypes.array,
+    /** OPTIONAL: The event emitter (https://www.npmjs.com/package/events) prop should be passed when connecting chates (see ChatExample). */
+    emitter: PropTypes.string
+  }
+
   constructor(props) {
     super(props)
     const messageColor = this.randomColor();
@@ -25,19 +35,21 @@ export default class ChatPanel extends React.Component {
     if (event.key === 'Enter') {
       const content = event.target.value;
       if (content.length > 0) {
-        const message = {
-          user: this.props.user,
-          content,
-          createdAt: this.time(),
-          color: this.state.color
-        }
-        this.setState({
-          messages: [...this.state.messages, message]
-        })
+        const message = this.messagePayload(content);
+        this.setState({ messages: [...this.state.messages, message] })
         this.clearInput();
         this.emitMessage(message);
       }
     }
+  }
+
+  messagePayload(content) {
+    return ({
+      user: this.props.user,
+      content,
+      createdAt: this.time(),
+      color: this.state.color
+    })
   }
 
   renderMessages() {
@@ -57,18 +69,20 @@ export default class ChatPanel extends React.Component {
   }
 
   renderMessage(message, index) {
-    const currentUser = message.user === this.props.user;
+    const isCurrentUser = message.user === this.props.user;
     let alignment = 'flex-start';
     let textAlign = 'left';
+    let color = '#8E9096'
 
-    if (currentUser) {
+    if (isCurrentUser) {
       alignment = 'flex-end';
       textAlign = 'right';
+      color = message.color;
     }
 
     return (
       <div key={index} className="chat-message" style={{ justifyContent: alignment }}>
-        <p className="chat-message-content" style={{ backgroundColor: message.color }}>{message.content}</p>
+        <p className="chat-message-content" style={{ backgroundColor: color }}>{message.content}</p>
         <span className="chat-time" style={{ textAlign: textAlign }}>{message.createdAt}</span>
       </div>
     )
