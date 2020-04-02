@@ -1,5 +1,6 @@
 import React from 'react';
 import ChatPanel from '../ChatPanel/ChatPanel';
+import { currentTime } from '../../shared/utils';
 
 /**
  * A chat example.
@@ -16,19 +17,14 @@ export default class ChatExample extends React.Component {
     this.state = {
       emitter,
       messages: [
-        { user: 'System', content: 'Renders messages passed in through props.', createdAt: this.time() },
-        { user: 'System', content: 'Emits messages through an Event Emitter that is passed in through props.', createdAt: this.time() }
+        { user: 'System', content: 'Renders messages passed in through props.', createdAt: currentTime() },
+        { user: 'System', content: 'Emits messages through an Event Emitter that is passed in through props.', createdAt: currentTime() }
       ]
     }
   }
 
   updateMessages(message) {
     this.setState({ messages: [...this.state.messages, message] })
-  }
-
-  time() {
-    const now = new Date();
-    return now.toUTCString();
   }
 
   render() {
