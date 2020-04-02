@@ -83,8 +83,8 @@ export default class ChatPanel extends React.Component {
 
     return (
       <div key={index} className="chat-message" style={{ justifyContent: alignment }}>
-        <p className="chat-message-content" style={{ backgroundColor: color }}>{message.content}</p>
         <span className="chat-time" style={{ textAlign: textAlign }}>{message.createdAt}</span>
+        <p className="chat-message-content" style={{ backgroundColor: color }}>{message.content}</p>
       </div>
     )
   }
