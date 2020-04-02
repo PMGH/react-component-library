@@ -28,6 +28,16 @@
   background: transparent;
 }
 
+.chat-header {
+  display: flex;
+  align-items: center;
+}
+
+.chat-icon {
+  width: 36px;
+  margin-right: $margin-sm;
+}
+
 .chat-message {
   display: flex;
   flex-flow: row wrap;

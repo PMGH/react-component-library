@@ -106,6 +106,7 @@ export default class ChatPanel extends React.Component {
       <div className="chat-container">
         { this.props.user &&
           <div className="chat-header" style={{ color: this.state.color }}>
+            <img className="chat-icon" src="https://cdn2.iconfinder.com/data/icons/user-interface-essential-solid/32/Artboard_53-512.png" alt="Chat person icon" />
             { this.props.user }
           </div>
         }
