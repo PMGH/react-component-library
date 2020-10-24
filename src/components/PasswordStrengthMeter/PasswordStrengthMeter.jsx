@@ -11,7 +11,8 @@ export default class PasswordStrengthMeter extends React.Component {
     this.state = {
       strength: 0,
       feedback: '',
-      password: ''
+      password: '',
+      passwordVisible: false
     }
   }
 
@@ -31,11 +32,19 @@ export default class PasswordStrengthMeter extends React.Component {
     })
   }
 
+  togglePasswordVisibility() {
+    console.log('toggling password visibility')
+    this.setState({ passwordVisible: !this.state.passwordVisible })
+  }
+
   render() {
-    const { strength, feedback } = this.state;
+    const { strength, feedback, passwordVisible } = this.state;
     return (
       <div className={"password-strength-container"}>
-        <input className="password-input" placeholder="Enter password" type="password" onChange={(e) => this.onChange(e)} />
+        <div class="controls show-hide-wpd">
+          <input id="password" className="password-input" placeholder="Enter password" type={passwordVisible ? "text" : "password"} onChange={(e) => this.onChange(e)} />
+          <span onClick={() => this.togglePasswordVisibility()} class="icon-eye show-pwd">{passwordVisible ? "Hide" : "Show"}</span>
+        </div>
         <ProgressBar value={strength} maxValue={4} displayValue={true} />
         <p className="password-feedback">{feedback}</p>
       </div>
