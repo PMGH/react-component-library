@@ -1,4 +1,3 @@
-
 import React from 'react';
 import zxcvbn from 'zxcvbn';
 import ProgressBar from '../ProgressBar/ProgressBar';
@@ -33,17 +32,12 @@ export default class PasswordStrengthMeter extends React.Component {
   }
 
   render() {
-    const { strength, feedback, password } = this.state;
-    const passwordPresent = password.length > 0;
+    const { strength, feedback } = this.state;
     return (
       <div className={"password-strength-container"}>
-        { passwordPresent &&
-          <ProgressBar value={strength} maxValue={4} displayValue={true} />
-        }
-        { passwordPresent && feedback &&
-          <p className="password-feedback">{feedback}</p>
-        }
         <input className="password-input" placeholder="Enter password" type="password" onChange={(e) => this.onChange(e)} />
+        <ProgressBar value={strength} maxValue={4} displayValue={true} />
+        <p className="password-feedback">{feedback}</p>
       </div>
     );
   }
