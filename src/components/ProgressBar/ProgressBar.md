@@ -1,7 +1,9 @@
 Example
 
 ```js padded
-<ProgressBar value={3} maxValue={5} displayValue={true}/>
+<ProgressBar value={0} maxValue={5} />
+<br />
+<ProgressBar value={3} maxValue={5} displayValue={true} />
 <br />
 <ProgressBar />
 <br />
