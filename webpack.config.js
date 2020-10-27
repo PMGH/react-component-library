@@ -11,23 +11,16 @@ module.exports = {
         test: /\.scss$/,
         use: [
           // Creates `style` nodes from JS strings
-          "style-loader",
+          { loader: "style-loader" },
           // Translates CSS into CommonJS
-          "css-loader",
+          { loader: "css-loader", options: { url: false } },
           // Compiles Sass to CSS
-          "sass-loader",
+          { loader: "sass-loader" },
         ],
       },
       {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: "svg-url-loader",
-            options: {
-              limit: 10000,
-            },
-          },
-        ],
+        test: /\.(png|jp(e*)g|svg|gif)$/,
+        use: [{ loader: "file-loader" }],
       },
       {
         test: /\.(js|jsx)$/,

@@ -11,6 +11,11 @@ Clone repository:
 git clone git@github.com:PMGH/react-component-library.git
 ```
 
+Node version:
+```
+12
+```
+
 Install dependencies:
 ```bash
 yarn install
